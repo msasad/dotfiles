@@ -91,5 +91,5 @@ cnoreabbrev Q q
 "let b:ale_fixers = {'php': ['php -l']}
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {'php': ['php']}
+let g:ale_linters = {'php': ['php'], 'python': ['pyflakes']}
 "let b:ale_linters = {'php': ['php -l', 'phpstan', 'phpcs']}

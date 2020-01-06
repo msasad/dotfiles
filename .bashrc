@@ -141,6 +141,7 @@ alias tns="tmux new-session -s"
 alias tmux='tmux -u'
 alias gop='gnome-open'
 alias cta='ctags -R .'
+alias bcc="bc <<<"
 #function prompt_right() {
 #  echo -e "\033[1;33m\\\t\033[0m"
 #}
@@ -150,7 +151,7 @@ alias cta='ctags -R .'
 #    PS1=$(printf "%*s\r%s\n \033[1;32m\$\033[0m " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$PS11")
 #}
 #PROMPT_COMMAND=prompt
-export TERM=xterm-256color
+export TERM=screen-256color
 export PATH=$PATH:$HOME/.local/bin:$HOME/.composer/vendor/bin
 export EDITOR=vi
 export PATH=$PATH:/home/sid/Downloads/tools/bin
