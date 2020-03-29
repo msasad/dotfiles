@@ -47,12 +47,12 @@ highlight ColorColumn ctermbg=8
 highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=236 guibg=Grey60
 highlight Comment ctermfg=8
 
-noremap <silent> <F3> :nohl <CR>
-noremap <silent> <F5> :tabp <CR>
-noremap <silent> <F6> :tabn <CR>
-inoremap <silent> <F3> <Esc>:nohl <CR>i
-inoremap <silent> <F5> <Esc>:tabp <CR>i
-inoremap <silent> <F6> <Esc>:tabn <CR>i
+" noremap <silent> <F3> :nohl <CR>
+" noremap <silent> <F5> :tabp <CR>
+" noremap <silent> <F6> :tabn <CR>
+" inoremap <silent> <F3> <Esc>:nohl <CR>i
+" inoremap <silent> <F5> <Esc>:tabp <CR>i
+" inoremap <silent> <F6> <Esc>:tabn <CR>i
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
@@ -65,24 +65,24 @@ vnoremap <up> <nop>
 vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
-inoremap <F8> <C-o>za
-nnoremap <F8> va{zf
-nnoremap <C-l> f{va{zf
+" inoremap <F8> <C-o>za
+" nnoremap <F8> va{zf
+nnoremap <C-l> $zf%
 nnoremap <C-k> zd
-nnoremap <F7> zd
-onoremap <F8> <C-C>za
-vnoremap <F8> zf
-inoremap <F10> <C-o>zA
-nnoremap <F10> zA
-onoremap <F10> <C-C>zA
-inoremap <F12> <Esc> :tabnew 
-nnoremap <F12> :tabnew 
-nnoremap <F9> :w <CR> :Make <CR>
+" nnoremap <F7> zd
+" onoremap <F8> <C-C>za
+" vnoremap <F8> zf
+" inoremap <F10> <C-o>zA
+" nnoremap <F10> zA
+" onoremap <F10> <C-C>zA
+" inoremap <F12> <Esc> :tabnew 
+" nnoremap <F12> :tabnew 
+" nnoremap <F9> :w <CR> :Make <CR>
 inoremap <ScrollWheelUp> <Nop>
 inoremap <ScrollWheelDown> <Nop>
 nnoremap c* *Ncgn
 
-nnoremap <F2> "+y
+" nnoremap <F2> "+y
 
 cnoreabbrev W w
 cnoreabbrev Q q
