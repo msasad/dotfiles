@@ -125,7 +125,16 @@ if [ -x /usr/bin/mint-fortune ]; then
 fi
 
 function activate {
-    if [ -e ~/.virtualenvs/$1/bin/activate ]; then
+    if [ $# -eq 0 ]; then
+        if [ -e .venv/bin/activate ]; then
+            . .venv/bin/activate
+            if [ $? -ne 0 ]; then
+                echo 'There was some error in activating the virtual environment' 1>&2
+            fi
+        else
+            echo 'No virtual environment exists in .venv sub directory' 1>&2
+        fi
+    elif [ -e ~/.virtualenvs/$1/bin/activate ]; then
         . ~/.virtualenvs/$1/bin/activate
     else
         echo "Virtual environment $1 not found in ~/.virtualenvs"
@@ -155,3 +164,14 @@ export TERM=screen-256color
 export PATH=$PATH:$HOME/.local/bin:$HOME/.composer/vendor/bin
 export EDITOR=vi
 export PATH=$PATH:/home/sid/Downloads/tools/bin
+
+. ~/.dotfiles/randomline.sh
+
+function cd {
+    builtin cd "$@"
+    if [ -e .venv/bin/activate ]; then
+        . .venv/bin/activate
+        PS1=$(echo ${PS1/(.venv)/})
+        export PS1=$(echo ${PS1/34/33})
+    fi
+}
