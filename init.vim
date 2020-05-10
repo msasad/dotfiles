@@ -13,7 +13,6 @@ set nows
 set number
 set numberwidth=2
 set path+=**
-set relativenumber
 set ruler
 set scrolloff=7
 set shell=/bin/bash
@@ -30,6 +29,7 @@ filetype plugin on
 filetype plugin indent on
 syntax enable
 
+
 autocmd Filetype html setlocal tabstop=2
 autocmd Filetype html setlocal shiftwidth=2
 autocmd Filetype php setlocal tabstop=4
@@ -40,19 +40,19 @@ autocmd Filetype css setlocal shiftwidth=2
 autocmd Filetype javascript setlocal tabstop=2
 autocmd Filetype javascript setlocal shiftwidth=2
 autocmd Filetype python setlocal foldmethod=indent
+autocmd Filetype python nnoremap <buffer> <silent> <F5> :split term://python3 % <CR>
+autocmd Filetype python nnoremap <buffer> <S-F5> :split term://python3 % 
 autocmd FocusLost * silent! wall
+autocmd BufLeave * silent! wall
+autocmd TermOpen * startinsert
+
 
 highlight LineNr ctermfg=DarkGrey
 highlight ColorColumn ctermbg=8
 highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=236 guibg=Grey60
 highlight Comment ctermfg=8
 
-" noremap <silent> <F3> :nohl <CR>
-" noremap <silent> <F5> :tabp <CR>
-" noremap <silent> <F6> :tabn <CR>
-" inoremap <silent> <F3> <Esc>:nohl <CR>i
-" inoremap <silent> <F5> <Esc>:tabp <CR>i
-" inoremap <silent> <F6> <Esc>:tabn <CR>i
+
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
@@ -65,31 +65,14 @@ vnoremap <up> <nop>
 vnoremap <down> <nop>
 vnoremap <left> <nop>
 vnoremap <right> <nop>
-" inoremap <F8> <C-o>za
-" nnoremap <F8> va{zf
 nnoremap <C-l> $zf%
 nnoremap <C-k> zd
-" nnoremap <F7> zd
-" onoremap <F8> <C-C>za
-" vnoremap <F8> zf
-" inoremap <F10> <C-o>zA
-" nnoremap <F10> zA
-" onoremap <F10> <C-C>zA
-" inoremap <F12> <Esc> :tabnew 
-" nnoremap <F12> :tabnew 
-" nnoremap <F9> :w <CR> :Make <CR>
 inoremap <ScrollWheelUp> <Nop>
 inoremap <ScrollWheelDown> <Nop>
 nnoremap c* *Ncgn
+noremap <silent> <F3> :nohl <CR>
+tnoremap <Esc> <C-\><C-n>
 
-" nnoremap <F2> "+y
 
 cnoreabbrev W w
 cnoreabbrev Q q
-
-
-"let b:ale_fixers = {'php': ['php -l']}
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {'php': ['php'], 'python': ['pyflakes']}
-"let b:ale_linters = {'php': ['php -l', 'phpstan', 'phpcs']}
