@@ -46,6 +46,7 @@ autocmd FocusLost * silent! wall
 autocmd BufLeave * silent! wall
 autocmd TermOpen * startinsert
 
+nnoremap <silent> <M-CR> :e <cfile> <CR>
 
 highlight LineNr ctermfg=DarkGrey
 highlight ColorColumn ctermbg=8
