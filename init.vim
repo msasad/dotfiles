@@ -1,9 +1,11 @@
 set autoindent
 set autowrite
+set autowriteall
 set background=dark
 set cursorline
 set encoding=utf-8
 set expandtab
+set gdefault
 set hlsearch
 set ignorecase
 set list listchars=tab:→\ ,trail:·
