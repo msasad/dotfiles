@@ -42,8 +42,8 @@ autocmd Filetype css setlocal shiftwidth=2
 autocmd Filetype javascript setlocal tabstop=2
 autocmd Filetype javascript setlocal shiftwidth=2
 autocmd Filetype python setlocal foldmethod=indent
-autocmd Filetype python nnoremap <buffer> <silent> <F5> :split term://python3 % <CR>
-autocmd Filetype python nnoremap <buffer> <S-F5> :split term://python3 % 
+autocmd Filetype python nnoremap <buffer> <silent> <F5> :vsplit term://python3 % <CR>
+autocmd Filetype python nnoremap <buffer> <S-F5> :vsplit term://python3 % 
 autocmd FocusLost * silent! wall
 autocmd BufLeave * silent! wall
 autocmd TermOpen * startinsert
