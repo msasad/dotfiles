@@ -165,7 +165,7 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/.composer/vendor/bin
 export EDITOR=vi
 export PATH=$PATH:/home/sid/Downloads/tools/bin
 
-. ~/.dotfiles/randomline.sh
+# . ~/.dotfiles/randomline.sh
 
 function cd {
     builtin cd "$@"
@@ -175,3 +175,4 @@ function cd {
         export PS1=$(echo ${PS1/34/33})
     fi
 }
+alias xo=xdg-open
