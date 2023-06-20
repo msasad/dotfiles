@@ -30,7 +30,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-source ~/.dotfiles/git-prompt.sh
+# source ~/.dotfiles/git-prompt.sh
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -132,7 +132,25 @@ function activate {
                 echo 'There was some error in activating the virtual environment' 1>&2
             fi
         else
-            echo 'No virtual environment exists in .venv sub directory' 1>&2
+            dir=..
+            found=false
+            while [ $dir != / ]; do
+                if [ -e $dir/.venv/bin/activate ]; then
+                    . $dir/.venv/bin/activate
+                    found=true
+                    if [ $? -ne 0 ]; then
+                        echo 'There was some error in activating the virtual environment' 1>&2
+                    else
+                        PS1=$(echo ${PS1/(.venv)/})
+                        export PS1=$(echo ${PS1/34/33})
+                    fi
+                fi
+                dir=$(cd $dir/.. && pwd)
+            done
+
+            if [ $found = false ]; then
+                echo 'No virtual environment exists in .venv sub directory' 1>&2
+            fi
         fi
     elif [ -e ~/.virtualenvs/$1/bin/activate ]; then
         . ~/.virtualenvs/$1/bin/activate

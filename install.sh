@@ -2,6 +2,7 @@
 
 pwd=$(pwd)
 
+mv ~/.bashrc ~/.bashrc.bak
 ln -s $pwd/.bashrc ~/.bashrc
 ln -s $pwd/.tmux.conf ~/.tmux.conf
 
